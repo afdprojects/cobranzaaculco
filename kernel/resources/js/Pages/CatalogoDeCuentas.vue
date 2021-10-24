@@ -1,7 +1,7 @@
 <template>
     <app-layout title="Catalogo De Cuentas">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight"><span style="margin: 20px;"></span>
                 Catalogo de Cuentas
             </h2>
         </template>
@@ -19,6 +19,15 @@
                         <a class="btn btn-primary" :href="route('catalogodecuentas.create')">
                                 <i class="bi bi-plus-square-fill" style="color:#FFF; font-size:14pt;"></i>
                                  Crear Nueva</a>
+
+
+
+                                 <a class="btn btn-secondary" style="margin-left:6px;" :href="route('catalogodecuentas.show','catalogo_cuentas')" target="_blank">
+                                <i class="bi bi-printer" style="color:#FFF; font-size:14pt;"></i>
+                                 Imprimir Cuentas</a>
+
+
+
                                  </div>
                                  <br>
                                     <table class="table table-striped">

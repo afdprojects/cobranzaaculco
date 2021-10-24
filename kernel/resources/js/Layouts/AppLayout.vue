@@ -1,20 +1,20 @@
 <template>
-    <div class="area">
+    <div class="area" style="background-image: url(images/background1.jpg); background-size: cover !important ; background-position: fixed;">
     <div>
         <Head :title="title" />
 
         <jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
+        <div class="min-h-screen ">
+            <nav class="bg-white ">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <img src="http://127.0.0.1:8000/images/sdca-imagotipo.png" width="70" height="70">
+                                    <img src="/images/sdca-imagotipo.png" width="70" height="70">
                                 </Link>
                             </div>
 
@@ -49,6 +49,7 @@
                                     </template>
 
                                     <template #content>
+
                                         <div class="w-60">
                                             <!-- Team Management -->
                                             <template v-if="$page.props.jetstream.hasTeamFeatures">
@@ -92,6 +93,7 @@
                             <div class="ml-3 relative">
                                 <jet-dropdown align="right" width="48">
                                     <template #trigger>
+                                        # Cajero: <b>{{ $page.props.user.id }} </b> <span style="padding-right: 10px !important;"></span>
                                         <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                             <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
                                         </button>
@@ -240,8 +242,8 @@
 </div><nav class="main-menu" style="position:fixed;">
             <ul>
                 <li>
-                    <a href="">
-                        <i class="bi bi-house-fill fa fa-2x" style="color:#FFF; font-size:19pt;"></i>
+                    <a :href="route('dashboard')">
+                        <i class="bi bi-house-fill  fa fa-2x" style="color:#FFF; font-size:19pt;"></i>
                         <span class="nav-text">
                             Home
                         </span>
@@ -258,7 +260,7 @@
 
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a :href="route('padrondecomercios.index')">
                        <i class="fa bi bi-cart-fill fa-2x" style="color:#FFF; font-size:19pt;"></i>
                         <span class="nav-text">
                             Comercios
@@ -266,25 +268,9 @@
                     </a>
 
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa bi bi-file-text-fill fa-2x" style="color:#FFF; font-size:19pt;"></i>
-                        <span class="nav-text">
-                            Predial
-                        </span>
-                    </a>
-
-                </li>
+                             
                 <li>
-                    <a href="#">
-                        <i class="fa bi bi-water fa-2x" style="color:#FFF; font-size:19pt;"></i>
-                        <span class="nav-text">
-                            Agua
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a :href="route('register.create')" >
                         <i class="fa bi bi-calculator-fill fa-2x" style="color:#FFF; font-size:19pt;"></i>
                         <span class="nav-text">
                            Cajas
@@ -300,21 +286,14 @@
                     </a>
                 </li>
                 <li>
-                   <a href="#">
+                   <a href="#" style="visibility: hidden;">
                         <i class="fa bi bi-server fa-2x" style="color:#FFF; font-size:19pt;"></i>
                         <span class="nav-text">
                             Respaldos
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-
-                        </span>
-                    </a>
-                </li>
+                
             </ul>
 
             <ul class="logout">

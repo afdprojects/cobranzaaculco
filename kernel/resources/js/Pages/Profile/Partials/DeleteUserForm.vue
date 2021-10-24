@@ -1,6 +1,6 @@
 <template>
     <jet-action-section>
-        <template #title>
+       <!-- <template #title>
             Delete Account
         </template>
 
@@ -9,7 +9,7 @@
         </template>
 
         <template #content>
-            <div class="max-w-xl text-sm text-gray-600">
+           <div class="max-w-xl text-sm text-gray-600">
                 Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
             </div>
 
@@ -19,10 +19,10 @@
                 </jet-danger-button>
             </div>
 
-            <!-- Delete Account Confirmation Modal -->
+             Delete Account Confirmation Modal 
             <jet-dialog-modal :show="confirmingUserDeletion" @close="closeModal">
                 <template #title>
-                    Delete Account
+                   Delete Account
                 </template>
 
                 <template #content>
@@ -46,9 +46,10 @@
                     <jet-danger-button class="ml-2" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Delete Account
                     </jet-danger-button>
+                
                 </template>
             </jet-dialog-modal>
-        </template>
+        </template>-->
     </jet-action-section>
 </template>
 

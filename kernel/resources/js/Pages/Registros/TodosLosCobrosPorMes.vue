@@ -2,8 +2,7 @@
     <app-layout title="Consultar todo">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Registros existentes en la tabla <span content="{{ nombreTabla }}"></span>
-
+                Registros existentes en la tabla {{ this.nombreTabla }}
             </h2>
         </template>
     <div class="container-fluid" >
@@ -22,7 +21,20 @@
                                         <a class="btn btn-primary" :href="route('nuevocobrodiverso.index')">
                                             <i class="bi bi-plus-square-fill" style="color:#FFF; font-size:14pt;"></i>
                                             Crear Nuevo Cobro</a>
+                                            <a class="btn btn-secondary" :href="route('impresiondecobros.show',this.nombreTabla)" target="_blank">
+                                            <i class="bi bi-eye" style=" margin-left: 5px;color:#FFF; font-size:14pt;"  ></i>
+                                            Revisar Tabla {{ this.nombreTabla }}</a>
+
+                                            <a class="btn btn-success" :href="route('exportarcobrosxls.show',this.nombreTabla)" target="_blank">
+
+
+
+                                            <i class="bi bi-file-earmark-excel" style=" margin-left: 5px;color:#FFF; font-size:14pt;"  ></i>
+                                            Descargar Excel {{ this.nombreTabla }}</a>
+
+
                                             <a class="btn btn-danger" :href="route('consultarcobro.index')" style="float:right; right:0px;">
+
                                             <i class="bi bi-reply-fill" style="color:#FFF; font-size:14pt; "></i>
                                             Regresar a Filtro</a>
                                             </div>
@@ -84,9 +96,10 @@
         props: {
             errors: Object,
             arrayTodo: Array,
-
+            nombreTabla: String,
         },
-
+        
+        
 
 
 

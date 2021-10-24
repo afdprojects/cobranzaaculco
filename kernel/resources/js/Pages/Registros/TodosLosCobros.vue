@@ -2,7 +2,7 @@
     <app-layout title="Consultar todo">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Registros existentes en tu base de datos
+               <span style="margin: 20px;"></span> Registros existentes en tu base de datos
             </h2>
         </template>
     <div class="container-fluid" >
@@ -21,6 +21,9 @@
                                         <a class="btn btn-primary" :href="route('nuevocobrodiverso.index')">
                                             <i class="bi bi-plus-square-fill" style="color:#FFF; font-size:14pt;"></i>
                                             Crear Nuevo Cobro</a>
+                                            <a class="btn btn-secondary" href="../impresiondecobros" target="_blank">
+                                            <i class="bi bi-eye" style="color:#FFF; font-size:14pt;"  ></i>
+                                            Ver Todo</a>
                                             <a class="btn btn-danger" :href="route('consultarcobro.index')" style="float:right; right:0px;">
                                             <i class="bi bi-reply-fill" style="color:#FFF; font-size:14pt; "></i>
                                             Regresar a Filtro</a>

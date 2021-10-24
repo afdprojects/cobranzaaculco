@@ -5,6 +5,8 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Configuraciones;
+use App\Models\Diarios;
 
 class ConsultasController extends Controller
 {
@@ -15,7 +17,7 @@ class ConsultasController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Registros/CalendarSelection');
+        return Inertia::render('Registros/BusquedaEspecial');
     }
 
     /**
@@ -37,7 +39,17 @@ class ConsultasController extends Controller
     public function store(Request $request)
     {
 
-        $mes=$request->input('mes');
+        $nombre = $request->input("nombre");
+        $arrayTodosLosCobros = DB::table('diarios')
+           ->where('nombre',"like","%".$nombre."%")
+           ->orderByDesc('fecha')
+           ->get();
+           $arregloConfiguracion = Configuraciones::all()->first();
+            return view('CobrosDiversosPorNombre',['arrayTodosLosCobros'=>$arrayTodosLosCobros, 'arregloConfiguraciones'=>$arregloConfiguracion ,'formatoFecha'=>null]);
+
+
+
+      /*  $mes=$request->input('mes');
         $periodo=$request->input('periodo');
         $conteomes=strlen($mes);
 
@@ -78,7 +90,8 @@ class ConsultasController extends Controller
             $nombreTabla=$mes."_".$periodo."_diarios";
           }
 
-          return Inertia::render("Registros/TodosLosCobrosPorMes",['arrayTodo'=>$arrayTodosLosCobros])->withViewData(['span' => $nombreTabla]);
+          return Inertia::render("Registros/TodosLosCobrosPorMes",['arrayTodo'=>$arrayTodosLosCobros,'nombreTabla'=>$nombreTabla]);
+*/
 
 
 
@@ -90,12 +103,18 @@ class ConsultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(String $diarios)
+    public function show(Request $request)
     {
+
+        
+
+        /*
         $query=$diarios;
         $arrayTodosLosCobros = DB::table($query)
         ->get();
         return Inertia::render('Registros/TodosLosCobros',['arrayTodo'=>$arrayTodosLosCobros]);
+        */
+
     }
 
     /**

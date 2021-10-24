@@ -14,8 +14,9 @@ class Create0921DiariosTable extends Migration
     public function up()
     {
         Schema::create('09_21_diarios', function (Blueprint $table) {
-            $table->id('id_ingresos');
-            $table->string('cuenta',255)->nullable();//recien obtenida del catalo de cuentas-> es el numero de cuenta
+            $table->id();
+            $table->bigInteger('id_ingresos');
+            $table->string('cuenta',255)->nullable();//recien obtenida del catalo de cuentas-> es el numero de c
             $table->string('recibo',255)->nullable();
             $table->date('fecha')->nullable();
             $table->text('nombre')->nullable();

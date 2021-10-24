@@ -35,8 +35,8 @@
                                     <div class="col-md-5">
 <br>
 <button class="btn btn-primary" style="margin-top:7px;" type="submit" text="Guardar">Consultar</button>
-                                        <a :href="route('nuevocobrodiverso.index')" style="margin-top: 7px;" class="btn btn-danger">Cancelar</a>
-                                        <a :href="route('consultarcobro.show','diarios')" style="margin-top: 7px; margin-left:7px;" class="btn btn-success"><i class="bi bi-ui-checks"></i> Consultar Todo</a>
+                                        <a :href="route('padrondecomercios.index')" style="margin-top: 7px;" class="btn btn-danger">Cancelar</a>
+                                        <a :href="route('consultarpadroncomercio.show','padrondecomercios')" style="margin-top: 7px; margin-left:7px;" class="btn btn-success"><i class="bi bi-ui-checks"></i> Consultar Todo</a>
                                     </div>
 
 
@@ -81,7 +81,7 @@
         },
         methods:{
             submit(){
-                this.$inertia.post(route('consultarcobro.store'),this.form);
+                this.$inertia.post(route('consultarpadroncomercio.store'),this.form);
             }
         }
 

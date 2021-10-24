@@ -54,6 +54,12 @@
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.errors.email" class="mt-2" />
             </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="lastname" value="lastname" />
+                <jet-input id="lastname" type="text" class="mt-1 block w-full" v-model="form.lastname" />
+                
+            </div>
         </template>
 
         <template #actions>
@@ -97,6 +103,7 @@
                     name: this.user.name,
                     email: this.user.email,
                     photo: null,
+                    lastname:this.user.lastname,
                 }),
 
                 photoPreview: null,

@@ -1,8 +1,8 @@
 <template>
     <app-layout title="Configuraciones">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Configuraciones
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight"><span style="margin: 20px;"></span>
+                Configuraciones del Recibo
             </h2>
         </template>
 <div class="container-fluid">

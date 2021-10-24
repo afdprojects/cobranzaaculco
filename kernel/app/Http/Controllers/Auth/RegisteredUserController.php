@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisteredUserController extends Controller
 {
@@ -24,7 +25,7 @@ class RegisteredUserController extends Controller
         return Inertia::render('Auth/Register');
     }
 
-    /**
+    /** 
      * Handle an incoming registration request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -48,8 +49,8 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return Redirect::route('dashboard');
     }
 }

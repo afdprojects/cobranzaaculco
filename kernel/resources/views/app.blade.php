@@ -6,8 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="stylesheet" href="http://127.0.0.1:8000/css/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/css/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap/dist/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-icons/font/bootstrap-icons.css') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -18,10 +18,45 @@
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <script src="http://127.0.0.1:8000/js/jquery/dist/jquery.js" ></script>
-        <script src="http://127.0.0.1:8000/js/js/bootstrap.js" ></script>
+        <script src="{{ asset('js\jquery\dist\jquery.js') }}" ></script>
+        <script src="{{ asset('js/js/bootstrap.js') }}" ></script>
+        
 
 <style>
+
+
+
+.loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: 1s all;
+        opacity: 0;
+    }
+    .loading.show {
+        opacity: 1;
+    }
+    .loading .spin {
+        border: 3px solid hsla(185, 100%, 62%, 0.2);
+        border-top-color: #3cefff;
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }  
+
 .form-control {
     display: block !important;
     width: 100% !important;
@@ -185,6 +220,9 @@ height: 100%;
 </style>
     </head>
     <body class="font-sans antialiased">
+        <div class="loading show">
+            <div class="spin"></div>
+        </div>
         @inertia
 
         @env ('local')
@@ -192,7 +230,12 @@ height: 100%;
         @endenv
     </body>
 
+<script>
+// Loading
+var Loading=(loadingDelayHidden=0)=>{let loading=null;const myLoadingDelayHidden=loadingDelayHidden;let imgs=[];let lenImgs=0;let counterImgsLoading=0;function incrementCounterImgs(){counterImgsLoading+=1;if(counterImgsLoading===lenImgs){hideLoading()}}function hideLoading(){if(loading!==null){loading.classList.remove('show');setTimeout(function(){loading.remove()},myLoadingDelayHidden)}}function init(){document.addEventListener('DOMContentLoaded',function(){loading=document.querySelector('.loading');imgs=Array.from(document.images);lenImgs=imgs.length;if(imgs.length===0){hideLoading()}else{imgs.forEach(function(img){img.addEventListener('load',incrementCounterImgs,false)})}})}return{'init':init}}
 
+Loading(1000).init();
+</script>
 
 
 </html>

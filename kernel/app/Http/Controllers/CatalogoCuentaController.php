@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Routing;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CatalogoCuentaController extends Controller
 {
@@ -59,9 +60,15 @@ class CatalogoCuentaController extends Controller
      * @param  \App\Models\CatalogoCuentas  $catalogoCuentas
      * @return \Illuminate\Http\Response
      */
-    public function show(CatalogoCuentas $catalogoCuentas)
+    public function show(Request $request)
     {
-        //
+        $catalogoCuentas=CatalogoCuentas::all();
+
+
+        $pdf = PDF::loadView('CatalogoCuentas',['catalogoCuentas'=>$catalogoCuentas]);
+
+         return $pdf->stream('archivo.pdf');
+
     }
 
     /**
@@ -73,7 +80,10 @@ class CatalogoCuentaController extends Controller
     public function edit(Request $request)
     {
 
-        $sinCatalogoCuentas = str_replace("http://127.0.0.1:8000/catalogodecuentas/", "",$request->url());
+        //$sinCatalogoCuentas = str_replace("http://127.0.0.1:8000/catalogodecuentas/", "",$request->url());
+
+       $sinCatalogoCuentas =  str_replace("catalogodecuentas/", "",$request->path());
+
         $sinEdit = str_replace("/edit", "",$sinCatalogoCuentas);
 
 

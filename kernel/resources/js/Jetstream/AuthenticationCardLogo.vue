@@ -1,6 +1,6 @@
 <template>
     <Link :href="'/'">
-        <img src="images/sdca.png" width="120" height="120">
+        <img src="http://sdca.com/images/sdca.png" width="120" height="120">
     </Link>
 </template>
 

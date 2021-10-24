@@ -19,6 +19,8 @@ class CreateDiariosTable extends Migration
             $table->string('recibo',255)->nullable();
             $table->date('fecha')->nullable();
             $table->text('nombre')->nullable();
+           $table->string('rfc')->nullable();
+            $table->string('clavecat')->nullable();
             $table->text('domicilio')->nullable();
             $table->string('concepto',255)->nullable();
             $table->string('periodo',255)->nullable();
@@ -31,6 +33,7 @@ class CreateDiariosTable extends Migration
             $table->decimal('multas',8,2)->nullable();
             $table->decimal('descuentos',8,2)->nullable();
             $table->decimal('total',8,2)->nullable();
+            $table->string('MesPeriodo')->nullable();
             $table->timestamps();
         });
     }

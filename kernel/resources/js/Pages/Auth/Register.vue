@@ -1,10 +1,15 @@
 <template>
+    <app-layout title="Consultar todo">
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <span style="padding: 10px;"></span>Registro de usuario
+            </h2>
+        </template>
+
     <Head title="Register" />
 
     <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+        
 
         <jet-validation-errors class="mb-4" />
 
@@ -52,10 +57,11 @@
             </div>
         </form>
     </jet-authentication-card>
+</app-layout>
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout.vue'
+    import AppLayout from '@/Layouts/AppLayout'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
     import JetButton from '@/Jetstream/Button.vue'
@@ -93,7 +99,7 @@
 
         methods: {
             submit() {
-                this.form.post(this.route('register'), {
+                this.form.post(this.route('register.store'), {
                     onFinish: () => this.form.reset('password', 'password_confirmation'),
                 })
             }
